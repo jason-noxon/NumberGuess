@@ -16,11 +16,11 @@ namespace NumberGuess
 
 	class Game
 	{
-		int numberToGuess = 0;
-		bool correct = false;
-		string name = string.Empty;
-		int allowedGuesses = 5;
-		int numberOfGuessesLeft = 0;
+		private int numberToGuess = 0;
+		private bool correct = false;
+		private string name = string.Empty;
+		private int allowedGuesses = 5;
+		private int numberOfGuessesLeft = 0;
 
 		public Game()
 		{
@@ -40,9 +40,9 @@ namespace NumberGuess
 			numberOfGuessesLeft = allowedGuesses;
 
 			Console.WriteLine(string.Format("Hello, {0}!", name));
-			this.numberToGuess = new Random().Next(1, 10);
+			this.numberToGuess = new Random().Next(1,11);
 			Console.WriteLine("I have just thought of a number between 1 and 10");
-			Console.WriteLine("Try to guess it in {0} guesses", allowedGuesses);
+			Console.WriteLine($"Try to guess it in {allowedGuesses} guesses");
 
 			this.Start();
 		}
@@ -135,15 +135,7 @@ namespace NumberGuess
 
 		private static bool IsBetweenOneAndTen(int value)
 		{
-			if (value >= 1 && value <= 10)
-			{
-				return true;
-			}
-
-			else
-			{
-				return false;
-			}
+			return (value >= 1 && value <= 10);
 		}
 
 		private void GenerateHint()
